@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Object Viewer</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Include model-viewer script for 3D model display -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div id="container">
+
+        <!-- Navbar -->
+        <div id="navbar">
+            <div id="logo">
+                <br>
+                <h3>CC</h3>
+            </div>
+            <ul>
+                <li class="active">Home</li>
+                <li>Tech</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Help</li>
+            </ul>
+        </div>
+
+        <!-- Aside for 3D Object -->
+        <div id="aSide">
+            <model-viewer id="modelViewer" src="kita_ikuyo__bocchi_the_rock.glb" 
+    alt="3D Dancing Model"
+    camera-controls
+    style="width: 100%; height: 590px; margin: 0 auto; pointer-events: none;"
+    animation-name="root|rig.001" 
+    animation-loop
+    animation-speed="1.0"
+    autoplay
+    interaction-prompt="none"
+    scale="0.7 0.7 0.7">
+</model-viewer>
+
+        </div>
+
+        <!-- Content -->
+        <div id="content">
+            <h2>Explore 3D Model</h2>
+            <p>Your custom 3D model displayed here!</p>
+            <button>Shop Now</button>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div id="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-twitter"></i>
+        </div>
+    </div>
+
+    <script>
+        // Get the model-viewer element
+        const modelViewer = document.getElementById("modelViewer");
+    
+        // Keep the Y-axis angle fixed
+        const fixedYAxisAngle = 75; // Fixed vertical angle
+    
+        // Define the maximum degree of rotation based on cursor position
+        const maxRotation = 15; // Maximum rotation on X-axis
+    
+        // Function to update the camera-orbit based on horizontal cursor position only
+        document.addEventListener('mousemove', (e) => {
+            const x = ((e.clientX / window.innerWidth) * maxRotation * 2) - maxRotation; // Corrected direction of rotation
+            modelViewer.setAttribute('camera-orbit', `${-x}deg ${fixedYAxisAngle}deg 100%`); // Invert x-axis rotation
+        });
+    </script>
+    
+    
+</body>
+
+</html>

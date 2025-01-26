@@ -1,0 +1,137 @@
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+/* Main Container Styling */
+#container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: #f7f7f7;
+    overflow: hidden; /* Ensure nothing overflows */
+}
+
+/* Navbar Styling */
+#navbar {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+#navbar #logo {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 3%;
+    top: 0;
+}
+
+/* Navbar Links */
+#navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 5%;
+    top: 0;
+}
+
+#navbar ul li {
+    height: 60px;
+    width: 80px;
+    margin: 0 30px;
+    display: grid;
+    place-items: center;
+    color: grey;
+}
+
+/* Content Section */
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 80vh;
+    width: 40%;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+
+#content h2 {
+    font-size: 40px;
+    color: grey;
+}
+
+#content p {
+    font-size: 20px;
+    color: rgb(189, 189, 189);
+}
+
+#content button {
+    width: 35%;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    background: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+#content button:hover {
+    background: navy;
+}
+
+/* Social Media Icons */
+#icons {
+    height: auto;
+    width: 140px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 250px);
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(2px 2px 2px grey);
+}
+
+#icons i {
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    margin: 10px;
+    color: grey;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+/* 3D Model Container */
+#aSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure it fills the container */
+    width: 50%;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
+#aSide model-viewer {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain; /* Prevent cropping */
+    visibility: visible;
+    display: block;
+}
